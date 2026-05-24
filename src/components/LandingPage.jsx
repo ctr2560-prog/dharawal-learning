@@ -14,7 +14,7 @@ export default function LandingPage({ onEnter }) {
       {/* Aboriginal art background */}
       <div className="landing__bg">
         <img
-          src="/images/aboriginal-art.png"
+          src={`${import.meta.env.BASE_URL}images/aboriginal-art.png`}
           alt="Aboriginal Dharawal dot art"
           className="landing__bg-img"
           onError={e => { e.target.style.display = 'none'; }}
@@ -32,7 +32,7 @@ export default function LandingPage({ onEnter }) {
           <div className="landing__logo-frame">
             <div className="landing__logo-inner">
               <img
-                src="/images/logo.png"
+                src={`${import.meta.env.BASE_URL}images/logo.png`}
                 alt="Sarah Redfern High School"
                 className="landing__logo"
                 onError={e => { e.target.parentElement.parentElement.style.display = 'none'; }}

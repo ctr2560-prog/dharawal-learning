@@ -178,7 +178,7 @@ export default function ColouringIn({ onBack }) {
   }
 
   function handlePresetClick(preset) {
-    loadImageToCanvas(`/colouring/${preset.file}`, preset.name);
+    loadImageToCanvas(`${import.meta.env.BASE_URL}colouring/${preset.file}`, preset.name);
   }
 
   function handlePresetError(file) {
@@ -293,7 +293,7 @@ export default function ColouringIn({ onBack }) {
               onClick={() => handlePresetClick(preset)}
             >
               <PresetThumb
-                src={`/colouring/${preset.file}`}
+                src={`${import.meta.env.BASE_URL}colouring/${preset.file}`}
                 onError={() => handlePresetError(preset.file)}
               />
               <span>{preset.name}</span>

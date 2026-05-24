@@ -83,7 +83,7 @@ export default function MainMenu({ onNavigate }) {
       <div className="menu__header dot-bg">
         <div className="menu__header-content">
           <img
-            src="/images/logo.png"
+            src={`${import.meta.env.BASE_URL}images/logo.png`}
             alt="Sarah Redfern"
             className="menu__logo"
             onError={e => { e.target.style.display = 'none'; }}

@@ -16,7 +16,7 @@ function VocabImage({ english }) {
   return (
     <img
       key={extIdx}
-      src={`/images/vocab/${slug}.${EXTENSIONS[extIdx]}`}
+      src={`${import.meta.env.BASE_URL}images/vocab/${slug}.${EXTENSIONS[extIdx]}`}
       alt={english}
       className="cardgame__vocab-img"
       onError={() => {

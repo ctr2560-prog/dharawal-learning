@@ -1,0 +1,366 @@
+.cardgame {
+  min-height: 100vh;
+  background: var(--navy-dark);
+  display: flex;
+  flex-direction: column;
+}
+
+.cardgame__header {
+  background: var(--red);
+  padding: 20px 48px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.cardgame__back {
+  background: rgba(0,0,0,0.2);
+  color: white;
+  font-size: 1.8rem;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: background 0.15s;
+}
+
+.cardgame__back:hover { background: rgba(0,0,0,0.35); }
+
+.cardgame__title {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: white;
+}
+
+.cardgame__sub {
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.7);
+}
+
+.cardgame__stats {
+  margin-left: auto;
+  display: flex;
+  gap: 12px;
+}
+
+.cardgame__stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: rgba(0,0,0,0.2);
+  border-radius: 8px;
+  padding: 4px 14px;
+}
+
+.cardgame__stat-val {
+  font-size: 1rem;
+  font-weight: 900;
+  color: white;
+}
+
+.cardgame__stat-lbl {
+  font-size: 0.65rem;
+  color: rgba(255,255,255,0.7);
+  text-transform: uppercase;
+}
+
+/* Difficulty */
+.cardgame__difficulty {
+  display: flex;
+  gap: 8px;
+  padding: 16px 48px 8px;
+}
+
+.cardgame__diff-btn {
+  flex: 1;
+  max-width: 120px;
+  background: rgba(255,255,255,0.08);
+  border-radius: var(--radius-sm);
+  padding: 8px 12px;
+  color: rgba(255,255,255,0.5);
+  font-size: 0.85rem;
+  font-weight: 700;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  transition: background 0.15s, color 0.15s;
+}
+
+.cardgame__diff-btn span {
+  font-size: 0.65rem;
+  font-weight: 400;
+  opacity: 0.7;
+}
+
+.cardgame__diff-btn--active {
+  background: var(--red);
+  color: white;
+}
+
+/* Two-panel layout */
+.cardgame__panels {
+  flex: 1;
+  display: flex;
+  gap: 0;
+  padding: 20px 48px 0;
+  align-items: flex-start;
+  min-height: 0;
+}
+
+.cardgame__panel {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.cardgame__panel-label {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: rgba(255,255,255,0.45);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.cardgame__divider {
+  width: 2px;
+  align-self: stretch;
+  background: rgba(255,255,255,0.08);
+  margin: 0 32px;
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+
+/* Image cards grid */
+.cardgame__img-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.cardgame__img-card {
+  position: relative;
+  background: rgba(255,255,255,0.07);
+  border: 2px solid transparent;
+  border-radius: 16px;
+  padding: 16px 12px 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: background 0.15s ease, border-color 0.15s ease,
+              transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.cardgame__img-card:hover:not(:disabled) {
+  background: rgba(255,255,255,0.12);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+}
+
+.cardgame__img-card--selected {
+  border-color: var(--gold) !important;
+  background: rgba(232,184,75,0.12) !important;
+  box-shadow: 0 0 0 3px rgba(232,184,75,0.25), 0 6px 20px rgba(0,0,0,0.3);
+  transform: translateY(-3px) !important;
+}
+
+.cardgame__img-card--matched {
+  border-color: #4ecb71 !important;
+  background: rgba(78,203,113,0.12) !important;
+  opacity: 0.65;
+  cursor: default;
+}
+
+.cardgame__vocab-img {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+  border-radius: 10px;
+  background: white;
+  padding: 6px;
+}
+
+.cardgame__img-placeholder {
+  width: 100px;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255,255,255,0.1);
+  border-radius: 10px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: rgba(255,255,255,0.5);
+  text-align: center;
+  padding: 8px;
+  text-transform: capitalize;
+}
+
+.cardgame__en-label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: rgba(255,255,255,0.55);
+  text-transform: capitalize;
+  text-align: center;
+}
+
+.cardgame__matched-tick {
+  position: absolute;
+  top: 8px;
+  right: 10px;
+  font-size: 0.9rem;
+  color: #4ecb71;
+  font-weight: 900;
+}
+
+/* Dharawal word cards */
+.cardgame__word-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.cardgame__word-card {
+  background: rgba(255,255,255,0.07);
+  border: 2px solid transparent;
+  border-radius: 12px;
+  padding: 16px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  cursor: pointer;
+  transition: background 0.15s ease, border-color 0.15s ease,
+              transform 0.15s ease;
+}
+
+.cardgame__word-card:hover:not(:disabled) {
+  background: rgba(255,255,255,0.13);
+  transform: translateX(4px);
+}
+
+.cardgame__word-card--ready {
+  border-color: rgba(255,255,255,0.15);
+}
+
+.cardgame__word-card--matched {
+  border-color: #4ecb71 !important;
+  background: rgba(78,203,113,0.12) !important;
+  opacity: 0.65;
+  cursor: default;
+}
+
+.cardgame__word-card--shake {
+  animation: wrongShake 0.5s ease;
+  border-color: var(--red) !important;
+  background: rgba(196,18,48,0.18) !important;
+}
+
+@keyframes wrongShake {
+  0%, 100% { transform: translateX(0); }
+  20% { transform: translateX(-10px); }
+  40% { transform: translateX(10px); }
+  60% { transform: translateX(-6px); }
+  80% { transform: translateX(4px); }
+}
+
+.cardgame__dh-word {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: white;
+  letter-spacing: 0.02em;
+}
+
+.cardgame__word-matched-label {
+  font-size: 0.7rem;
+  color: #4ecb71;
+  font-weight: 600;
+}
+
+/* Footer */
+.cardgame__footer {
+  padding: 16px 48px 32px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.cardgame__new {
+  background: rgba(255,255,255,0.1);
+  color: white;
+  font-size: 0.85rem;
+  font-weight: 700;
+  padding: 8px 20px;
+  border-radius: 20px;
+  flex-shrink: 0;
+  transition: background 0.15s;
+}
+
+.cardgame__new:hover { background: rgba(255,255,255,0.2); }
+
+.cardgame__hint {
+  font-size: 0.85rem;
+  color: var(--gold);
+  font-style: italic;
+}
+
+.cardgame__hint strong {
+  font-style: normal;
+  color: white;
+}
+
+/* Win screen */
+.cardgame__win {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 24px;
+  gap: 16px;
+  text-align: center;
+}
+
+.cardgame__win-icon { font-size: 4rem; }
+
+.cardgame__win-title {
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: white;
+}
+
+.cardgame__win-msg {
+  font-size: 1rem;
+  color: rgba(255,255,255,0.7);
+}
+
+.cardgame__win-score {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: var(--gold);
+  background: rgba(255,255,255,0.08);
+  padding: 12px 32px;
+  border-radius: 50px;
+}
+
+.cardgame__replay {
+  background: var(--red);
+  color: white;
+  font-size: 1.1rem;
+  font-weight: 800;
+  padding: 14px 40px;
+  border-radius: 50px;
+  margin-top: 8px;
+  transition: transform 0.15s, background 0.15s;
+}
+
+.cardgame__replay:hover {
+  background: var(--red-dark);
+  transform: scale(1.04);
+}

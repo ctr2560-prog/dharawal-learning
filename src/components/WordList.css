@@ -1,0 +1,176 @@
+.wordlist {
+  min-height: 100vh;
+  background: var(--navy-dark);
+  display: flex;
+  flex-direction: column;
+}
+
+.wordlist__header {
+  background: #0a4a2a;
+  padding: 20px 48px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.wordlist__back {
+  background: rgba(0,0,0,0.2);
+  color: white;
+  font-size: 1.8rem;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.15s;
+}
+
+.wordlist__back:hover { background: rgba(0,0,0,0.35); }
+
+.wordlist__title {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: white;
+}
+
+.wordlist__sub {
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.6);
+}
+
+.wordlist__search-wrap {
+  padding: 16px 48px 8px;
+}
+
+.wordlist__search {
+  width: 100%;
+  background: rgba(255,255,255,0.1);
+  border: none;
+  border-radius: 24px;
+  padding: 12px 18px;
+  color: white;
+  font-size: 0.9rem;
+  outline: none;
+  transition: background 0.15s;
+}
+
+.wordlist__search:focus { background: rgba(255,255,255,0.15); }
+.wordlist__search::placeholder { color: rgba(255,255,255,0.4); }
+
+.wordlist__cats {
+  display: flex;
+  gap: 8px;
+  padding: 8px 48px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  flex-shrink: 0;
+}
+
+.wordlist__cats::-webkit-scrollbar { display: none; }
+
+.wordlist__cat {
+  background: rgba(255,255,255,0.08);
+  color: rgba(255,255,255,0.6);
+  font-size: 0.78rem;
+  font-weight: 700;
+  padding: 6px 14px;
+  border-radius: 20px;
+  white-space: nowrap;
+  transition: background 0.15s, color 0.15s;
+}
+
+.wordlist__cat:hover { background: rgba(255,255,255,0.15); color: white; }
+
+.wordlist__cat--active {
+  background: #0a4a2a;
+  color: #4ecb71;
+}
+
+.wordlist__hint {
+  text-align: center;
+  font-size: 0.72rem;
+  color: rgba(255,255,255,0.3);
+  padding: 4px 0 8px;
+  font-style: italic;
+}
+
+.wordlist__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  padding: 8px 48px 32px;
+}
+
+/* Flip card */
+.wordlist__word {
+  height: 80px;
+  border-radius: var(--radius-sm);
+  position: relative;
+  perspective: 800px;
+  background: none;
+}
+
+.wordlist__word-front,
+.wordlist__word-back {
+  position: absolute;
+  inset: 0;
+  border-radius: var(--radius-sm);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  padding: 10px;
+  backface-visibility: hidden;
+  transition: transform 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.wordlist__word-front {
+  background: rgba(255,255,255,0.08);
+  transform: rotateY(0deg);
+}
+
+.wordlist__word-back {
+  background: #0a4a2a;
+  transform: rotateY(180deg);
+}
+
+.wordlist__word--flipped .wordlist__word-front { transform: rotateY(-180deg); }
+.wordlist__word--flipped .wordlist__word-back { transform: rotateY(0deg); }
+
+.wordlist__en {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: white;
+  text-align: center;
+}
+
+.wordlist__dh {
+  font-size: 0.9rem;
+  font-weight: 800;
+  color: #4ecb71;
+  text-align: center;
+}
+
+.wordlist__en-small {
+  font-size: 0.7rem;
+  color: rgba(255,255,255,0.5);
+}
+
+.wordlist__cat-badge {
+  font-size: 0.62rem;
+  color: rgba(255,255,255,0.4);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.wordlist__empty {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  color: rgba(255,255,255,0.4);
+  font-style: italic;
+}

@@ -1,0 +1,44 @@
+import { useState } from 'react';
+import LandingPage from './components/LandingPage.jsx';
+import MainMenu from './components/MainMenu.jsx';
+import ChatBot from './components/ChatBot.jsx';
+import CardGame from './components/CardGame.jsx';
+import FillBlanks from './components/FillBlanks.jsx';
+import ColouringIn from './components/ColouringIn.jsx';
+import WordList from './components/WordList.jsx';
+import './App.css';
+
+export default function App() {
+  const [page, setPage] = useState('landing');
+
+  function navigate(to) {
+    setPage(to);
+    window.scrollTo(0, 0);
+  }
+
+  return (
+    <div className="app">
+      {page === 'landing' && (
+        <LandingPage onEnter={() => navigate('menu')} />
+      )}
+      {page === 'menu' && (
+        <MainMenu onNavigate={navigate} />
+      )}
+      {page === 'chat' && (
+        <ChatBot onBack={() => navigate('menu')} />
+      )}
+      {page === 'cards' && (
+        <CardGame onBack={() => navigate('menu')} />
+      )}
+      {page === 'blanks' && (
+        <FillBlanks onBack={() => navigate('menu')} />
+      )}
+      {page === 'colour' && (
+        <ColouringIn onBack={() => navigate('menu')} />
+      )}
+      {page === 'wordlist' && (
+        <WordList onBack={() => navigate('menu')} />
+      )}
+    </div>
+  );
+}

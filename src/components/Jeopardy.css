@@ -1,0 +1,309 @@
+.jep {
+  min-height: 100vh;
+  background: #071a3e;
+  display: flex;
+  flex-direction: column;
+}
+
+.jep__header {
+  background: #03113a;
+  padding: 14px 32px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-shrink: 0;
+  border-bottom: 2px solid #e8b84b;
+}
+
+.jep__back {
+  background: rgba(255,255,255,0.08);
+  color: white;
+  font-size: 1.8rem;
+  width: 40px; height: 40px;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+  transition: background 0.15s;
+}
+.jep__back:hover { background: rgba(255,255,255,0.15); }
+
+.jep__title {
+  font-size: 1.4rem;
+  font-weight: 900;
+  color: #e8b84b;
+  font-family: 'Montserrat', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.jep__team-switcher {
+  display: flex;
+  gap: 8px;
+  margin-left: auto;
+}
+
+.jep__team-btn {
+  padding: 8px 22px;
+  border-radius: 50px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: rgba(255,255,255,0.5);
+  background: rgba(255,255,255,0.06);
+  border: 1.5px solid rgba(255,255,255,0.12);
+  transition: all 0.15s;
+}
+.jep__team-btn--active {
+  background: #e8b84b;
+  color: #071a3e;
+  border-color: #e8b84b;
+}
+
+.jep__new-btn {
+  background: transparent;
+  color: rgba(255,255,255,0.4);
+  font-size: 0.82rem;
+  padding: 8px 16px;
+  border-radius: 8px;
+  border: 1px solid rgba(255,255,255,0.15);
+  transition: all 0.15s;
+}
+.jep__new-btn:hover { color: white; border-color: rgba(255,255,255,0.3); }
+
+/* Board */
+.jep__board {
+  flex: 1;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 4px;
+  padding: 8px;
+  align-content: start;
+}
+
+.jep__col {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.jep__cat-header {
+  background: #071a3e;
+  border: 2px solid #1a3a6e;
+  border-radius: 6px;
+  padding: 16px 8px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 900;
+  color: white;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  min-height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.jep__cell {
+  background: #1a3a8c;
+  border: 2px solid #2a4aa0;
+  border-radius: 6px;
+  padding: 20px 8px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.6rem;
+  font-weight: 900;
+  color: #e8b84b;
+  text-align: center;
+  cursor: pointer;
+  transition: background 0.15s, transform 0.1s;
+  min-height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.jep__cell:hover:not(:disabled) {
+  background: #2a4aac;
+  transform: scale(1.02);
+}
+
+.jep__cell--used { cursor: default; }
+.jep__cell--correct { background: #0a3d20; border-color: #1a6d40; }
+.jep__cell--wrong   { background: #3d0a0a; border-color: #6d1a1a; }
+
+/* Game over overlay */
+.jep__gameover {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+}
+
+.jep__gameover-inner {
+  background: #071a3e;
+  border: 3px solid #e8b84b;
+  border-radius: 20px;
+  padding: 48px 56px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.jep__gameover-inner h3 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2rem;
+  font-weight: 900;
+  color: #e8b84b;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.jep__gameover-inner p {
+  font-size: 1.1rem;
+  color: white;
+}
+
+.jep__winner {
+  font-size: 1.4rem !important;
+  font-weight: 700;
+  color: #e8b84b !important;
+  margin-top: 8px;
+}
+
+/* Clue modal */
+.jep__modal-bg {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.75);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 200;
+  padding: 24px;
+}
+
+.jep__modal {
+  background: #071a3e;
+  border: 3px solid #e8b84b;
+  border-radius: 20px;
+  padding: 40px 48px;
+  max-width: 680px;
+  width: 100%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  animation: modalIn 0.25s ease;
+}
+
+@keyframes modalIn {
+  from { transform: scale(0.85); opacity: 0; }
+  to   { transform: scale(1); opacity: 1; }
+}
+
+.jep__modal-pts {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 3rem;
+  font-weight: 900;
+  color: #e8b84b;
+  line-height: 1;
+}
+
+.jep__modal-cat {
+  font-size: 0.72rem;
+  color: rgba(255,255,255,0.4);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-weight: 700;
+}
+
+.jep__modal-q {
+  font-size: 0.95rem;
+  color: rgba(255,255,255,0.5);
+  font-style: italic;
+}
+
+.jep__modal-word {
+  font-size: 2.8rem;
+  font-weight: 900;
+  color: white;
+  font-family: 'Montserrat', sans-serif;
+  text-transform: capitalize;
+  line-height: 1.1;
+}
+
+.jep__options {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.jep__option {
+  background: #1a3a8c;
+  border: 2px solid #2a4aa0;
+  border-radius: 12px;
+  padding: 18px 16px;
+  color: #e8b84b;
+  font-size: 1.15rem;
+  font-weight: 700;
+  font-family: 'Montserrat', sans-serif;
+  cursor: pointer;
+  transition: background 0.15s, border-color 0.15s, transform 0.1s;
+}
+.jep__option:hover {
+  background: #2a4aac;
+  border-color: #e8b84b;
+  transform: scale(1.02);
+}
+
+.jep__result {
+  padding: 20px 24px;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 8px;
+}
+
+.jep__result--correct {
+  background: rgba(78,203,113,0.12);
+  border: 2px solid rgba(78,203,113,0.3);
+}
+
+.jep__result--wrong {
+  background: rgba(196,18,48,0.12);
+  border: 2px solid rgba(196,18,48,0.25);
+}
+
+.jep__result-verdict {
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: white;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.jep__result--correct .jep__result-verdict { color: #4ecb71; }
+.jep__result--wrong .jep__result-verdict { color: #f87171; }
+
+.jep__result-answer {
+  font-size: 1rem;
+  color: rgba(255,255,255,0.7);
+}
+
+.jep__close-btn {
+  background: #e8b84b;
+  color: #071a3e;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 800;
+  padding: 12px 32px;
+  border-radius: 50px;
+  margin-top: 4px;
+  transition: transform 0.1s;
+}
+.jep__close-btn:hover { transform: scale(1.04); }

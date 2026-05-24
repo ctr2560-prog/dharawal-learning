@@ -8,14 +8,17 @@ const COLORS = [
   '#000000', '#6b7280', '#92400e', '#ffffff',
 ];
 
-// Add your colouring images to public/colouring/ and list them here
 const PRESET_PAGES = [
-  { name: 'Page 1', file: 'page1.png' },
-  { name: 'Page 2', file: 'page2.png' },
-  { name: 'Page 3', file: 'page3.png' },
-  { name: 'Page 4', file: 'page4.png' },
-  { name: 'Page 5', file: 'page5.png' },
-  { name: 'Page 6', file: 'page6.png' },
+  { name: 'Kalboonya (Lyrebird)',   file: 'kalboonya.png'  },
+  { name: 'Gulung (Wombat)',        file: 'gulung.png'     },
+  { name: 'Jindoala (Goanna)',      file: 'jindoala.png'   },
+  { name: 'Junagen (Starfish)',     file: 'junagen.png'    },
+  { name: 'Bilima (Turtle)',        file: 'bilima.png'     },
+  { name: 'Jummerlung (Platypus)', file: 'jummerlung.png' },
+  { name: 'Munda Gari (Snake)',    file: 'munda-gari.png' },
+  { name: 'Budjaan (Eagle)',        file: 'budjaan.png'    },
+  { name: 'Girawaa (Stingray)',     file: 'girawaa.png'    },
+  { name: 'Kooala (Koala)',         file: 'kooala.png'     },
 ];
 
 function hexToRgb(hex) {

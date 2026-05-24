@@ -73,28 +73,53 @@
   z-index: 1;
 }
 
-.menu__grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-  padding: 40px 48px 32px;
+/* Sections */
+.menu__sections {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  padding: 32px 48px 16px;
   flex: 1;
 }
+
+.menu__section {
+  margin-bottom: 28px;
+}
+
+.menu__section-label {
+  font-size: 0.68rem;
+  font-weight: 800;
+  color: rgba(255,255,255,0.3);
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  margin-bottom: 12px;
+  padding-left: 2px;
+}
+
+.menu__grid {
+  display: grid;
+  gap: 16px;
+}
+
+/* Grid columns by count */
+.menu__grid--5 { grid-template-columns: repeat(5, 1fr); }
+.menu__grid--4 { grid-template-columns: repeat(4, 1fr); }
+.menu__grid--1 { grid-template-columns: repeat(3, 1fr); }
 
 .menu__card {
   position: relative;
   background: var(--card-color);
-  border-radius: 20px;
-  padding: 32px 24px;
+  border-radius: 16px;
+  padding: 24px 20px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 8px;
+  gap: 6px;
   overflow: hidden;
   transition: transform 0.18s ease, box-shadow 0.18s ease;
   box-shadow: 0 4px 16px rgba(0,0,0,0.3);
   text-align: left;
-  min-height: 160px;
+  min-height: 140px;
 }
 
 .menu__card:hover, .menu__card:focus-visible {
@@ -121,7 +146,7 @@
 }
 
 .menu__card-title {
-  font-size: 1.15rem;
+  font-size: 1rem;
   font-weight: 800;
   color: white;
   line-height: 1.2;

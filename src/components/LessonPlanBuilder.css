@@ -1,0 +1,449 @@
+.lpb {
+  min-height: 100vh;
+  background: var(--navy-dark);
+  display: flex;
+  flex-direction: column;
+}
+
+.lpb__header {
+  background: #1a3a5c;
+  padding: 16px 48px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-shrink: 0;
+}
+
+.lpb__back {
+  background: rgba(0,0,0,0.2);
+  color: white;
+  font-size: 1.8rem;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: background 0.15s;
+}
+
+.lpb__back:hover { background: rgba(0,0,0,0.35); }
+
+.lpb__title {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: white;
+}
+
+.lpb__sub {
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.6);
+}
+
+.lpb__print-btn {
+  margin-left: auto;
+  background: var(--red);
+  color: white;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 700;
+  padding: 10px 24px;
+  border-radius: 50px;
+  transition: background 0.15s, transform 0.15s;
+  flex-shrink: 0;
+}
+
+.lpb__print-btn:hover:not(:disabled) {
+  background: var(--red-dark);
+  transform: scale(1.03);
+}
+
+.lpb__print-btn:disabled {
+  background: rgba(255,255,255,0.15);
+  cursor: not-allowed;
+}
+
+/* Layout */
+.lpb__layout {
+  display: flex;
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+}
+
+/* Form panel */
+.lpb__form {
+  width: 380px;
+  flex-shrink: 0;
+  overflow-y: auto;
+  padding: 24px 20px;
+  border-right: 1px solid rgba(255,255,255,0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.lpb__section {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.lpb__section-title {
+  font-size: 0.72rem;
+  font-weight: 800;
+  color: rgba(255,255,255,0.45);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+/* KLA buttons */
+.lpb__kla-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.lpb__kla-btn {
+  background: rgba(255,255,255,0.06);
+  border: 1.5px solid transparent;
+  border-radius: 8px;
+  padding: 9px 14px;
+  color: rgba(255,255,255,0.6);
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-align: left;
+  transition: all 0.15s;
+}
+
+.lpb__kla-btn:hover { background: rgba(255,255,255,0.1); color: white; }
+
+.lpb__kla-btn--active {
+  background: rgba(26,58,92,0.8);
+  border-color: #4a8ab0;
+  color: white;
+}
+
+/* Fields */
+.lpb__fields {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.lpb__field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.lpb__field--full { grid-column: 1 / -1; }
+
+.lpb__field span {
+  font-size: 0.7rem;
+  color: rgba(255,255,255,0.4);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.lpb__field input,
+.lpb__field select,
+.lpb__field textarea {
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 6px;
+  padding: 7px 10px;
+  color: white;
+  font-size: 0.82rem;
+  font-family: inherit;
+  outline: none;
+  transition: border-color 0.15s;
+  resize: vertical;
+}
+
+.lpb__field input:focus,
+.lpb__field select:focus,
+.lpb__field textarea:focus { border-color: #4a8ab0; }
+
+.lpb__field select option { background: #0d1b6e; }
+
+/* Vocab list */
+.lpb__vocab-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  max-height: 220px;
+  overflow-y: auto;
+  padding-right: 4px;
+}
+
+.lpb__vocab-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 5px 8px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.1s;
+}
+
+.lpb__vocab-item:hover { background: rgba(255,255,255,0.06); }
+
+.lpb__vocab-item input { flex-shrink: 0; accent-color: #4a8ab0; }
+
+.lpb__vocab-en {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: rgba(255,255,255,0.8);
+  flex: 1;
+  text-transform: capitalize;
+}
+
+.lpb__vocab-dh {
+  font-size: 0.78rem;
+  color: rgba(255,255,255,0.35);
+  font-style: italic;
+}
+
+/* Preview panel */
+.lpb__preview-panel {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background: #e8e8e0;
+}
+
+.lpb__preview-label {
+  background: rgba(0,0,0,0.1);
+  padding: 8px 24px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #666;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  flex-shrink: 0;
+}
+
+.lpb__preview-scroll {
+  flex: 1;
+  overflow-y: auto;
+  padding: 32px;
+}
+
+/* ── Printable lesson plan styles ── */
+.lp-print {
+  background: white;
+  color: #111;
+  font-family: Georgia, serif;
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 0;
+  box-shadow: 0 2px 20px rgba(0,0,0,0.15);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.lp-print__banner {
+  background: #0d1b6e;
+  color: white;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding: 10px 32px;
+}
+
+.lp-print__header {
+  padding: 24px 32px 16px;
+  border-bottom: 2px solid #0d1b6e;
+}
+
+.lp-print__title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 900;
+  color: #0d1b6e;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 16px;
+}
+
+.lp-print__info {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85rem;
+}
+
+.lp-print__info td {
+  padding: 5px 12px 5px 0;
+  vertical-align: top;
+}
+
+.lp-print__info td:nth-child(odd) {
+  color: #888;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  white-space: nowrap;
+  padding-right: 8px;
+  width: 80px;
+}
+
+.lp-print__info td:nth-child(even) {
+  font-weight: 600;
+  color: #111;
+  padding-right: 32px;
+}
+
+.lp-print__blank-field {
+  color: #bbb;
+  font-style: italic;
+  font-weight: 400;
+}
+
+.lp-print__section {
+  padding: 16px 32px;
+  border-bottom: 1px solid #eee;
+}
+
+.lp-print__section--intent {
+  background: #f0f4ff;
+}
+
+.lp-print__section--vocab {
+  background: #fdf8f0;
+}
+
+.lp-print__section-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #0d1b6e;
+  margin-bottom: 8px;
+}
+
+.lp-print__section p {
+  font-size: 0.88rem;
+  color: #333;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.lp-print__vocab-note {
+  font-size: 0.8rem;
+  color: #666;
+  font-style: italic;
+  margin-bottom: 12px;
+}
+
+.lp-print__vocab-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85rem;
+}
+
+.lp-print__vocab-table th {
+  background: #0d1b6e;
+  color: white;
+  padding: 6px 10px;
+  text-align: left;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.lp-print__vocab-table td {
+  padding: 7px 10px;
+  border-bottom: 1px solid #eee;
+}
+
+.lp-print__vocab-table tr:nth-child(even) td { background: #fdf8f0; }
+
+.lp-print__dh {
+  font-style: italic;
+  color: #c41230;
+  font-weight: 600;
+}
+
+/* Lesson stages */
+.lp-print__stages {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  border-bottom: 1px solid #eee;
+}
+
+.lp-print__stage {
+  padding: 16px 20px;
+  border-right: 1px solid #eee;
+}
+
+.lp-print__stage:last-child { border-right: none; }
+
+.lp-print__stage-label {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.68rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #0d1b6e;
+  margin-bottom: 8px;
+}
+
+.lp-print__stage-body {
+  font-size: 0.84rem;
+  color: #333;
+  line-height: 1.6;
+  min-height: 80px;
+}
+
+.lp-print__placeholder {
+  color: #bbb;
+  font-style: italic;
+}
+
+/* Bottom section */
+.lp-print__bottom {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border-bottom: 1px solid #eee;
+}
+
+.lp-print__bottom .lp-print__section {
+  border-bottom: none;
+  border-right: 1px solid #eee;
+}
+
+.lp-print__bottom .lp-print__section:last-child { border-right: none; }
+
+.lp-print__footer {
+  padding: 12px 32px;
+  font-size: 0.68rem;
+  color: #aaa;
+  font-style: italic;
+  line-height: 1.6;
+  background: #fafafa;
+}
+
+/* Print media */
+@media print {
+  body * { visibility: hidden; }
+  .lp-print, .lp-print * { visibility: visible; }
+  .lp-print {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    box-shadow: none;
+    border-radius: 0;
+    max-width: 100%;
+  }
+}

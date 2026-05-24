@@ -1,0 +1,129 @@
+.hub {
+  min-height: 100vh;
+  background: var(--navy-dark);
+  display: flex;
+  flex-direction: column;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.hub__header {
+  background: #1a3a5c;
+  padding: 20px 48px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.hub__back {
+  background: rgba(0,0,0,0.2);
+  color: white;
+  font-size: 1.8rem;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: background 0.15s;
+}
+
+.hub__back:hover { background: rgba(0,0,0,0.35); }
+
+.hub__title {
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: white;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+.hub__sub {
+  font-size: 0.78rem;
+  color: rgba(255,255,255,0.6);
+}
+
+.hub__body {
+  flex: 1;
+  padding: 48px;
+}
+
+.hub__intro {
+  font-size: 1rem;
+  color: rgba(255,255,255,0.6);
+  margin-bottom: 36px;
+  max-width: 640px;
+}
+
+.hub__options {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  max-width: 900px;
+}
+
+.hub__option {
+  background: rgba(255,255,255,0.06);
+  border: 2px solid rgba(255,255,255,0.1);
+  border-radius: 20px;
+  padding: 36px 32px;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  cursor: pointer;
+  transition: background 0.15s, border-color 0.15s, transform 0.15s;
+}
+
+.hub__option:hover {
+  background: rgba(255,255,255,0.1);
+  border-color: rgba(255,255,255,0.25);
+  transform: translateY(-3px);
+}
+
+.hub__option-icon {
+  width: 52px;
+  height: 52px;
+  color: rgba(255,255,255,0.7);
+  margin-bottom: 4px;
+}
+
+.hub__option-icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.hub__option-title {
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: white;
+}
+
+.hub__option-desc {
+  font-size: 0.88rem;
+  color: rgba(255,255,255,0.55);
+  line-height: 1.6;
+}
+
+.hub__option-types {
+  font-size: 0.72rem;
+  color: rgba(255,255,255,0.35);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-top: 4px;
+}
+
+.hub__footer {
+  padding: 20px 48px 36px;
+}
+
+.hub__disclaimer {
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.3);
+  font-style: italic;
+  max-width: 640px;
+  line-height: 1.6;
+}

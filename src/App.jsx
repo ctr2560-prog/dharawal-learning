@@ -6,6 +6,11 @@ import CardGame from './components/CardGame.jsx';
 import FillBlanks from './components/FillBlanks.jsx';
 import ColouringIn from './components/ColouringIn.jsx';
 import WordList from './components/WordList.jsx';
+import TeacherHub from './components/TeacherHub.jsx';
+import SpeedRound from './components/SpeedRound.jsx';
+import WordScramble from './components/WordScramble.jsx';
+import Jeopardy from './components/Jeopardy.jsx';
+import FamilyFeud from './components/FamilyFeud.jsx';
 import './App.css';
 
 export default function App() {
@@ -38,6 +43,21 @@ export default function App() {
       )}
       {page === 'wordlist' && (
         <WordList onBack={() => navigate('menu')} />
+      )}
+      {page === 'teacher' && (
+        <TeacherHub onBack={() => navigate('menu')} />
+      )}
+      {page === 'speedround' && (
+        <SpeedRound onBack={() => navigate('menu')} />
+      )}
+      {page === 'scramble' && (
+        <WordScramble onBack={() => navigate('menu')} />
+      )}
+      {page === 'jeopardy' && (
+        <Jeopardy onBack={() => navigate('menu')} />
+      )}
+      {page === 'feud' && (
+        <FamilyFeud onBack={() => navigate('menu')} />
       )}
     </div>
   );

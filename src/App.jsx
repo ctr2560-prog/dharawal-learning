@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import LandingPage from './components/LandingPage.jsx';
+import Acknowledgement from './components/Acknowledgement.jsx';
 import MainMenu from './components/MainMenu.jsx';
 import ChatBot from './components/ChatBot.jsx';
 import CardGame from './components/CardGame.jsx';
@@ -11,6 +12,7 @@ import SpeedRound from './components/SpeedRound.jsx';
 import WordScramble from './components/WordScramble.jsx';
 import Jeopardy from './components/Jeopardy.jsx';
 import FamilyFeud from './components/FamilyFeud.jsx';
+import AnimalSounds from './components/AnimalSounds.jsx';
 import './App.css';
 
 export default function App() {
@@ -24,7 +26,10 @@ export default function App() {
   return (
     <div className="app">
       {page === 'landing' && (
-        <LandingPage onEnter={() => navigate('menu')} />
+        <LandingPage onEnter={() => navigate('acknowledgement')} />
+      )}
+      {page === 'acknowledgement' && (
+        <Acknowledgement onNext={() => navigate('menu')} />
       )}
       {page === 'menu' && (
         <MainMenu onNavigate={navigate} />
@@ -58,6 +63,9 @@ export default function App() {
       )}
       {page === 'feud' && (
         <FamilyFeud onBack={() => navigate('menu')} />
+      )}
+      {page === 'animalsounds' && (
+        <AnimalSounds onBack={() => navigate('menu')} />
       )}
     </div>
   );

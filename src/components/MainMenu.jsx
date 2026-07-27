@@ -48,6 +48,13 @@ const icons = {
       <path d="M23 8 L26 11 L23 14" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
     </svg>
   ),
+  animalsounds: (
+    <svg viewBox="0 0 40 40" fill="none">
+      <path d="M6 15 H12 L21 7 V33 L12 25 H6 Z" stroke="white" strokeWidth="2.5" strokeLinejoin="round" fill="none"/>
+      <path d="M27 14 C30 17 30 23 27 26" stroke="white" strokeWidth="2.5" strokeLinecap="round" fill="none"/>
+      <path d="M32 9 C37 15 37 25 32 31" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeOpacity="0.5" fill="none"/>
+    </svg>
+  ),
   teacher: (
     <svg viewBox="0 0 40 40" fill="none"><rect x="4" y="6" width="32" height="22" rx="3" stroke="white" strokeWidth="2.5" fill="none"/><line x1="20" y1="28" x2="20" y2="34" stroke="white" strokeWidth="2.5" strokeLinecap="round"/><line x1="12" y1="34" x2="28" y2="34" stroke="white" strokeWidth="2.5" strokeLinecap="round"/><line x1="10" y1="14" x2="22" y2="14" stroke="white" strokeWidth="2" strokeLinecap="round"/><line x1="10" y1="19" x2="18" y2="19" stroke="white" strokeWidth="2" strokeLinecap="round"/><circle cx="29" cy="17" r="4" stroke="white" strokeWidth="2" fill="none"/><line x1="32" y1="20" x2="35" y2="23" stroke="white" strokeWidth="2" strokeLinecap="round"/></svg>
   ),
@@ -71,6 +78,7 @@ const SECTIONS = [
       { id: 'feud',       title: 'Family Feud',   sub: 'Team guessing game',          color: '#6a1fd0' },
       { id: 'speedround', title: 'Speed Round',   sub: 'Answer as fast as you can',   color: '#b07800' },
       { id: 'scramble',   title: 'Word Scramble', sub: 'Unscramble Dharawal words',   color: '#0e6655' },
+      { id: 'animalsounds', title: 'Animal Sounds', sub: 'Guess the animal you hear', color: '#0a5c7a' },
     ],
   },
   {
